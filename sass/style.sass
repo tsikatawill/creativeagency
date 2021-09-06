@@ -1,0 +1,216 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+$primary: #f0f0f0
+$secondary: #86adff
+
+body
+    font-family: poppins !important
+
+
+ul
+    list-style: none
+
+
+a
+    color: black !important 
+
+header
+    background-color: white
+    position: fixed
+    width: 100%
+    z-index: 10
+
+header .container
+    height: 10vh
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    .logo
+        font-size: 1.2rem
+        font-weight: bold
+        text-transform: uppercase
+
+
+.menu
+    background-color: darken($primary, 5%) 
+    position: fixed
+    top: 10vh
+    left: -320px
+    z-index: 1
+    transition: all 0.3s ease-in
+
+    &.toggled
+        top: 10vh
+        left: 0
+
+    .container
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 3rem 0 3rem 1rem
+
+        ul.social-icons
+            padding: 0
+
+            li
+                transition: all 0.2s ease-in
+                padding: 0.5rem
+                &:hover
+                    transform: scale(1.2)
+
+        ul.nav-menu
+            margin: 0
+            margin-left: 30px
+
+        ul.nav-menu li
+            padding: 1rem 5em 1rem 0.5rem
+            transition: all 0.3s ease
+            text-decoration: none !important
+            cursor: pointer
+
+            &:hover
+                padding-left: 1rem
+
+.hero
+    height: 90vh
+    background: $primary
+
+    .container
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+
+        .right
+            background: url(/img/clothing3a.png)
+            height: 100%
+            width: 100%
+            background-attachment: fixed
+        
+        .left
+            // height: 100%
+            width: 100%
+
+section
+    padding: 2rem 0
+        
+    .section-header
+        text-align: center
+        padding-bottom: 1rem !important
+        width: 500px
+        margin: auto
+
+    &.services
+        .section-body
+            display: grid
+            gap: 1rem
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            
+            div.card
+                text-align: center
+
+section.work-showcase
+    .section-body
+        display: grid
+        gap: 1rem
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+
+    .overlay
+        transition: all 0.3s ease
+        position: absolute
+        top: 100%
+        left: 0
+        height: 100%
+        width: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        background: rgba(0, 0, 0, 1)
+        
+    .work-card
+        overflow: hidden 
+        position: relative
+        height: 270px
+
+        &:hover
+            .overlay
+                background: rgba(0, 0, 0, 0.7)
+                top: 0
+                left: 0
+                
+
+        img
+            height: 100%
+            width: 100%
+
+
+.filler-div
+    height: 500px
+
+.contact-form
+    padding: 1rem
+
+
+.contact-details .wrapper
+    background-color: $primary
+    padding: 1rem
+    border-radius: 5px
+
+    .detail
+        display: flex
+        margin-bottom: 2rem
+
+        strong
+            color: darken($secondary, 20%)
+
+        p
+            // display: none
+            margin-bottom: 0
+            word-wrap: anywhere
+
+    i
+        margin-right: 20px
+        color: darken($secondary, 20%)
+
+footer
+    padding: 1rem 0
+    background-color: #333333
+    color: white
+    
+    a
+        color: $secondary !important
+
+
+@media screen and (max-width:765px)
+    body
+        font-size: 15px !important
+    header
+        .logo
+            font-size: 0.8rem
+    .hero
+        .container
+            flex-direction: column
+        .left, .right
+            padding: 2rem 0 !important
+        .right
+            display: none
+
+    .menu
+        .container
+            ul.nav-menu li
+                padding: 1rem 5rem 2rem 0.5rem
+        
+
+    section
+        .section-header
+            width: 70vw
+
+        .services
+            .section-body
+                display: none
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
